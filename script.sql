@@ -6,16 +6,18 @@ USE "Centre de formation";
 
 /* 2. Creation des tables */
 CREATE TABLE Etudiant (
-  numEtu INT PRIMARY KEY,
+  numCINEtu INT PRIMARY KEY,
   nomEtu VARCHAR(50) NOT NULL,
   prenomEtu VARCHAR(50) NOT NULL,
   dateNaissance DATE NOT NULL,
   adresseEtu VARCHAR(100) NOT NULL,
-  villeEtu VARCHAR(50) NOT NULL
+  villeEtu VARCHAR(50) NOT NULL,
+  niveauEtu VARCHAR(50) NOT NULL,
 );
 
 CREATE TABLE Session (
-  codeSession INT PRIMARY KEY,
+  codeSess INT PRIMARY KEY,
+  nomSess VARCHAR(50) NOT NULL,
   dateDebut DATE NOT NULL,
   dateFin DATE NOT NULL,
   codeFormation INT NOT NULL,
@@ -25,21 +27,23 @@ CREATE TABLE Session (
 
 CREATE TABLE Formation (
   codeForm INT PRIMARY KEY,
-  intituleForm VARCHAR(100) NOT NULL,
+  titreForm VARCHAR(100) NOT NULL,
   dureeForm INT NOT NULL,
+  prixForm INT NOT NULL,
   codeSess INT NOT NULL
 );
 
 CREATE TABLE Specialite (
   codeSpec INT PRIMARY KEY,
-  intituleSpec VARCHAR(100) NOT NULL,
+  nomSpec VARCHAR(100) NOT NULL,
+  descSpec VARCHAR(100) NOT NULL,
   /* 5. Ajout de la colonne "Active" */
   active TINYINT(1) NOT NULL DEFAULT 1
 );
 
 CREATE TABLE Inscription (
   numEtu INT,
-  codeSession INT,
+  codeSess INT,
   typeInscription VARCHAR(50) NOT NULL,
   codeConcerne INT,
   PRIMARY KEY (numEtu, codeSession),
