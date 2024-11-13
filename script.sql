@@ -42,7 +42,7 @@ CREATE TABLE Specialite (
 );
 
 CREATE TABLE Inscription (
-  numEtu INT,
+  numCINEtu INT,
   codeSess INT,
   typeInscription VARCHAR(50) NOT NULL,
   codeConcerne INT,
